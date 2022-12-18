@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum Player {
     case human, computer
@@ -14,8 +15,20 @@ enum Player {
 struct Move {
     let player: Player
     let boardIndex: Int
+    var indicator: String
     
-    var indicator: String {
-        return player == .human ? "xmark" : "circle"
+    var color: Color {
+        switch indicator {
+        case "flame":
+            return Color.red
+        case "drop":
+            return Color.blue
+        case "leaf":
+            return Color.green
+        case "wind":
+            return Color.yellow
+        default:
+            return Color.gray
+        }
     }
 }
